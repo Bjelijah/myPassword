@@ -14,7 +14,6 @@ class APP : Application() {
         super.onCreate()
         Config.init(this)
 
-
         HttpManager
             .instance
             .addInterceptor(HeaderInterceptor())
