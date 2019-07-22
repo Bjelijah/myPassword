@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        applicationId "xyz.mercs.AresAndroid"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "0.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    signingConfigs {
+        config {
+            storeFile file("app.keystore")
+            storePassword "android"
+            keyAlias "app"
+            keyPassword "android"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            buildConfigField("int", "build_level", deps.build_level.CE.toString())
+
+        }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.config
+            buildConfigField("int", "build_level", deps.build_level.CE.toString())
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                if(deps.build_level.CE == 2){
+                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
+                }else{
+                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + "alpha.apk"
+                }
+            }
+    }
+}
+kapt{
+    arguments{
+        arg("AROUTER_MODULE_NAME",project.getName())
+    }
+    generateStubs = true
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':lib_opensource')
+    implementation project(':lib_net')
+    implementation project(':lib_base')
+    implementation project(':lib_common')
+
+    kapt deps.arouter.compiler
+}
