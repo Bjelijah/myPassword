@@ -87,11 +87,10 @@ class HttpManager private constructor(){
                     .build()
 
                 RxJavaPlugins.setErrorHandler{ t->
-                    Log.e("123","errorHandler")
                     t.printStackTrace()
                     mErrorCb?.onError()
                 }
-
+                mUrl = url
             }
         }catch (e:KeyStoreException){
             e.printStackTrace()
