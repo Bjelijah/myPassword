@@ -1,4 +1,4 @@
-package xyz.mercs.libnet.utils
+package xyz.mercs.libnet.helper
 
 import android.content.Context
 import okhttp3.OkHttpClient

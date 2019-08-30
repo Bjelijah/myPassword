@@ -1,11 +1,12 @@
-package xyz.mercs.ryfddandroid
+package xyz.mercs.AresAndroid
 
 import android.app.Application
 import android.content.pm.PackageManager.NameNotFoundException
 import com.alibaba.android.arouter.launcher.ARouter
 import xyz.mercs.AresAndroid.BuildConfig
 import xyz.mercs.libnet.HttpManager
-import xyz.mercs.libnet.utils.HeaderInterceptor
+import xyz.mercs.libnet.helper.HeaderInterceptor
+import xyz.mercs.ryfddandroid.Config
 
 
 class APP : Application() {
@@ -24,18 +25,6 @@ class APP : Application() {
             ARouter.openLog()
         }
         ARouter.init(this)
-    }
-
-    private fun getLocalVersionName():String{
-        var localVersion = ""
-        try{
-            var packageInfo = packageManager
-                .getPackageInfo(packageName,0)
-            localVersion = packageInfo.versionName
-        }catch (e: NameNotFoundException){
-            e.printStackTrace()
-        }
-        return localVersion
     }
 
 }

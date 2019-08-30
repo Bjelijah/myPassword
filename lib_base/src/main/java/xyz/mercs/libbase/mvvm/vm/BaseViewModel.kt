@@ -12,10 +12,10 @@ open abstract class BaseViewModel(app: Application):AndroidViewModel(app) {
     init {
         onCreate()
     }
-    var mContext: Context?=null
 
-    fun setContext(c:Context):BaseViewModel{
-        mContext = c
+
+    fun initResource(c:Context):BaseViewModel{
+
         return this
     }
     var mMessage:MutableLiveData<String>? = null

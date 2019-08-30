@@ -1,4 +1,4 @@
-package xyz.mercs.libnet.utils
+package xyz.mercs.libnet.helper
 
 import okhttp3.Interceptor
 import okhttp3.MediaType

@@ -1,4 +1,4 @@
-package xyz.mercs.libnet.utils
+package xyz.mercs.libnet.helper
 
 import android.util.Log
 import java.security.cert.X509Certificate

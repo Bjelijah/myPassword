@@ -19,7 +19,7 @@ open abstract class BaseActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
         mBinder = DataBindingUtil.setContentView(this,getLayout())
-        mViewModel = getViewModel().setContext(this)
+        mViewModel = getViewModel().initResource(this)
         bind(mBinder!!,mViewModel!!)
         mViewModel!!.mMessage!!.observe(this, Observer{
             if (!TextUtils.isEmpty(it)) {

@@ -1,4 +1,4 @@
-package xyz.mercs.libnet.utils
+package xyz.mercs.libnet.helper
 
 import android.text.TextUtils
 import okhttp3.Interceptor
@@ -8,7 +8,7 @@ class HeaderInterceptor :Interceptor {
 
     companion object {
         var TOKEN : String ?=null
-        var API_VERSION = 17
+        var API_VERSION = "0.0.0"
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {

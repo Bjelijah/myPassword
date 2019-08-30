@@ -20,11 +20,12 @@ open abstract class BaseFragment :Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
+        if(mViewModel==null)mViewModel = getViewModel()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinder = DataBindingUtil.inflate(inflater,getLayout(),container,false)
-        if (mViewModel==null)mViewModel = getViewModel().setContext(context!!)
+        mViewModel?.initResource(context!!)
         bind(mBinder!!,mViewModel!!)
         mViewModel!!.mMessage!!.observe(this, Observer{
             if(!TextUtils.isEmpty(it)) {

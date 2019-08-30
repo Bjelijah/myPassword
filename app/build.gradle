@@ -26,6 +26,8 @@ android {
             storePassword "android"
             keyAlias "app"
             keyPassword "android"
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
     buildTypes {
@@ -33,15 +35,18 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
-            buildConfigField("int", "build_level", deps.build_level.CE.toString())
+
 
         }
         debug {
             debuggable true
             signingConfig signingConfigs.config
-            buildConfigField("int", "build_level", deps.build_level.CE.toString())
+//            buildConfigField("int", "build_level", deps.build_level.CE.toString())
         }
     }
+
+
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -49,13 +54,28 @@ android {
     applicationVariants.all {
         variant ->
             variant.outputs.all {
-                if(deps.build_level.CE == 2){
-                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
-                }else{
-                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + "alpha.apk"
-                }
+                outputFileName = "TyhJc_"+variant.flavorName+"_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
+//                if(deps.build_level.CE == 2){
+//                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
+//                }else{
+//                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + "alpha.apk"
+//                }
             }
     }
+
+    flavorDimensions "default"
+    productFlavors{
+        envProduce{
+            manifestPlaceholders = [app_name:"@string/app_name_release",build_level: 2]
+        }
+        envTest {
+            manifestPlaceholders = [app_name:"@string/app_name_debug",build_level: 1]
+        }
+        envDevelop {
+            manifestPlaceholders = [app_name:"@string/app_name_alpha",build_level: 0]
+        }
+    }
+
 }
 kapt{
     arguments{

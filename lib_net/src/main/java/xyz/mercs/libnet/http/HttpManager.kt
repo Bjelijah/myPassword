@@ -9,7 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import xyz.mercs.libnet.utils.SSLConection
+import xyz.mercs.libnet.helper.SSLConection
 import java.io.IOException
 import java.security.KeyManagementException
 import java.security.KeyStoreException
@@ -60,7 +60,18 @@ class HttpManager private constructor(){
         try {
             if (mClient==null){
                 val logInterceptor = HttpLoggingInterceptor{
-                    Log.i("http",it)
+                    if (it.length > 4096) {
+                        var i = 0
+                        while (i < it.length) {
+                            if (i + 4096 < it.length)
+                                Log.i("http",  it.substring(i, i + 4096))
+                            else
+                                Log.i("http",  it.substring(i))
+                            i += 4096
+                        }
+                    } else {
+                        Log.i("http",  it)
+                    }
                 }
                 logInterceptor.level = HttpLoggingInterceptor.Level.BODY
                 val builder = if(isSSL){
@@ -81,9 +92,9 @@ class HttpManager private constructor(){
                 mUploadClient = builder
                     .retryOnConnectionFailure(true)
                     .addNetworkInterceptor(logInterceptor)
-                    .connectTimeout(600,TimeUnit.SECONDS)
-                    .readTimeout(600,TimeUnit.SECONDS)
-                    .writeTimeout(600,TimeUnit.SECONDS)
+                    .connectTimeout(180,TimeUnit.SECONDS)
+                    .readTimeout(180,TimeUnit.SECONDS)
+                    .writeTimeout(180,TimeUnit.SECONDS)
                     .build()
 
                 RxJavaPlugins.setErrorHandler{ t->

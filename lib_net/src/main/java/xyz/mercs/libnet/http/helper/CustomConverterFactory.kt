@@ -1,4 +1,4 @@
-package xyz.mercs.libnet.utils
+package xyz.mercs.libnet.helper
 
 import okhttp3.ResponseBody
 import retrofit2.Converter
