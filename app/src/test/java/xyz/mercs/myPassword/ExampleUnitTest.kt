@@ -1,4 +1,4 @@
-package xyz.mercs.AresAndroid
+package xyz.mercs.myPassword
 
 import org.junit.Test
 

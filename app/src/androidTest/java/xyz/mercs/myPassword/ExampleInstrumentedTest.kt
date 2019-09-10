@@ -1,4 +1,4 @@
-package xyz.mercs.AresAndroid
+package xyz.mercs.myPassword
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

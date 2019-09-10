@@ -9,7 +9,7 @@ android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "xyz.mercs.AresAndroid"
+        applicationId "xyz.mercs.myPassword"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -54,7 +54,7 @@ android {
     applicationVariants.all {
         variant ->
             variant.outputs.all {
-                outputFileName = "TyhJc_"+variant.flavorName+"_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
+                outputFileName = "MyPassword_"+variant.flavorName+"_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
 //                if(deps.build_level.CE == 2){
 //                    outputFileName = "RyFdd_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
 //                }else{

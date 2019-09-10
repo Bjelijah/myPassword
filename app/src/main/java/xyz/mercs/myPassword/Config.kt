@@ -1,9 +1,7 @@
-package xyz.mercs.ryfddandroid
+package xyz.mercs.myPassword
 
 import android.content.Context
 import android.content.pm.PackageManager
-import xyz.mercs.AresAndroid.BuildConfig
-import xyz.mercs.libnet.HttpManager
 import xyz.mercs.libnet.helper.HeaderInterceptor
 
 object Config {

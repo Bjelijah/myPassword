@@ -1,4 +1,4 @@
-package xyz.mercs.AresAndroid
+package xyz.mercs.myPassword
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
