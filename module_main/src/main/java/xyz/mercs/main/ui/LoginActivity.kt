@@ -17,9 +17,14 @@ class LoginActivity :BaseActivity() {
     override fun bind(bind: ViewDataBinding, vm: BaseViewModel) {
         bind.setVariable(BR.vm,vm)
         var loginVm = vm as LoginViewModel
-        loginVm.init()
-        loginVm.mFingerRes?.observe(this, Observer {
+        loginVm.mContext = this
 
+        loginVm.mFingerRes?.observe(this, Observer {
+            if(it.isOk){
+                loginVm.stop()
+
+            }
         })
+        loginVm.start()
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name_alpha">Ares</string>
-    <string name="app_name_debug">Ares</string>
-    <string name="app_name_release">Ares</string>
+    <string name="app_name_alpha">MyPassword</string>
+    <string name="app_name_debug">MyPassword</string>
+    <string name="app_name_release">MyPassword</string>
 </resources>

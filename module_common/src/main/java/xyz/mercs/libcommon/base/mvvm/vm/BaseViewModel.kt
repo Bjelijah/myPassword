@@ -25,7 +25,7 @@ open abstract class BaseViewModel(app: Application):AndroidViewModel(app) {
             }
             return field
         }
-
+    var mContext:Context?=null
 
 
     private var mCompositeDisposable: CompositeDisposable?=null
