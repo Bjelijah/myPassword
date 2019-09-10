@@ -40,7 +40,6 @@ object FingerprintHelper {
                 }
 
 
-
             },null)
         return true
     }
