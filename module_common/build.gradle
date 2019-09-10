@@ -39,7 +39,6 @@ kapt{
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':lib_opensource')
-    implementation project(':lib_base')
     implementation project(':lib_net')
 
 }

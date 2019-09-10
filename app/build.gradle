@@ -87,7 +87,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':lib_opensource')
     implementation project(':lib_net')
-    implementation project(':lib_base')
     implementation project(':module_common')
     implementation project(':module_main')
     kapt deps.arouter.compiler
