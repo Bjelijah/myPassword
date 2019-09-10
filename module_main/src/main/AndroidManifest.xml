@@ -1,2 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="xyz.mercs.modulemain"/>
+          package="xyz.mercs.modulemain">
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
+    <application>
+
+
+
+    </application>
+
+</manifest>

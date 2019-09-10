@@ -81,7 +81,7 @@
     deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 
     def build_versions = [:]
-    build_versions.min_sdk = 21
+    build_versions.min_sdk = 23
     build_versions.target_sdk = 29
     build_versions.build_tools = "29.0.1"
     ext.build_versions = build_versions
