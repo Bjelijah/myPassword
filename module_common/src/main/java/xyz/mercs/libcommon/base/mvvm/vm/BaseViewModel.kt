@@ -2,6 +2,7 @@ package xyz.mercs.libcommon.base.mvvm.vm
 
 import android.app.Application
 import android.content.Context
+import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.disposables.CompositeDisposable
@@ -27,6 +28,8 @@ open abstract class BaseViewModel(app: Application):AndroidViewModel(app) {
         }
     var mContext:Context?=null
 
+
+    var mTitle = ObservableField<String>("")
 
     private var mCompositeDisposable: CompositeDisposable?=null
     protected fun addDisposable(subscription: Disposable){

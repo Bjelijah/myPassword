@@ -23,7 +23,9 @@
                 android:value="${build_level}" />
 
         <activity android:name="xyz.mercs.main.ui.LoginActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/MyLogin"
+                >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
