@@ -2,4 +2,6 @@
 <resources>
     <dimen name="login_drawable_padding">@dimen/_5sdp</dimen>
     <dimen name="titleTextSize">@dimen/_14ssp</dimen>
+    <dimen name="list_item_height">@dimen/_50sdp</dimen>
+    <dimen name="list_item_margin">@dimen/_5sdp</dimen>
 </resources>
